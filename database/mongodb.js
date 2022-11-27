@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 //database url;
-const mongodb = process.env.MONGODB_DATABASE;
+const mongodb = process.env.MONGODB_ONLINE_DATABASE;
 
 
 //connecting to mongodb function;
