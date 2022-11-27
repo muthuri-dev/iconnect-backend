@@ -2,12 +2,9 @@
 const {
     peers,
     blogs,
-    groups,
     techNews,
     mentors,
     projects,
-    teams,
-    errors,
 } = require('../models/data.schema');
 
 
@@ -50,26 +47,6 @@ const blogsGetController = async(req, res) => {
             });
     } catch (error) { console.log(error.message) }
 }
-
-
-//groups controller;
-const groupsGetController = async(req, res) => {
-    try {
-        await groups.find({})
-            .then((response) => {
-                if (response) {
-                    res.json({ data: response });
-                } else {
-                    res.send(error.message);
-                }
-            })
-            .catch((error) => {
-                console.error(error.message);
-                res.status(error.status).json(error.message);
-            });
-    } catch (error) { console.log(error.message) }
-}
-
 
 //news controller;
 const newsGetController = async(req, res) => {
@@ -126,51 +103,11 @@ const projectGetController = async(req, res) => {
     } catch (error) { console.log(error.message) }
 }
 
-
-//teams controller;
-const teamsGetController = async(req, res) => {
-    try {
-        await teams.find({})
-            .then((response) => {
-                if (response) {
-                    res.json({ data: response });
-                } else {
-                    res.send(error.message);
-                }
-            })
-            .catch((error) => {
-                console.error(error.message);
-                res.status(error.status).json(error.message);
-            });
-    } catch (error) { console.log(error.message) }
-}
-
-//errors controller;
-const errorsGetController = async(req, res) => {
-    try {
-        await errors.find({})
-            .then((response) => {
-                if (response) {
-                    res.json({ data: response });
-                } else {
-                    res.send(error.message);
-                }
-            })
-            .catch((error) => {
-                console.error(error.message);
-                res.status(error.status).json(error.message);
-            });
-    } catch (error) { console.log(error.message) }
-}
-
 //exporting controllers;
 module.exports = {
     peersGetController,
     blogsGetController,
-    groupsGetController,
     newsGetController,
     mentorsGetController,
     projectGetController,
-    teamsGetController,
-    errorsGetController,
 }
