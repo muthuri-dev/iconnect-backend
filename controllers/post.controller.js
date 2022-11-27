@@ -2,12 +2,9 @@
 const {
     peers,
     blogs,
-    groups,
     techNews,
     mentors,
     projects,
-    teams,
-    errors,
 } = require('../models/data.schema');
 
 
@@ -43,32 +40,16 @@ const blogPostController = (req, res) => {
             image: req.file.filename,
         });
         newBlog.save((error) => {
-            if (!error) {
-                res.status(200).send('saved')
-            } else {
+            if (error) {
                 res.send(error.message);
+            } else {
+                res.status(200).send(newBlog);
             }
         })
     } catch (error) { console.log(error.message) }
 }
 
-//group post  Controller;
-const groupPostController = (req, res) => {
-        try {
-            const newGroup = new groups({
-                groupName: req.body.groupName,
-                image: req.file.filename,
-            });
-            newGroup.save((error) => {
-                if (!error) {
-                    res.status(200).send('saved')
-                } else {
-                    res.send(error.message);
-                }
-            })
-        } catch (error) { console.log(error.message) }
-    }
-    //news controller;
+//news controller;
 const newsPostController = (req, res) => {
     try {
         const moreNews = new techNews({
@@ -78,7 +59,7 @@ const newsPostController = (req, res) => {
         });
         moreNews.save((error) => {
             if (!error) {
-                res.status(200).send('saved')
+                res.status(200).send(moreNews);
             } else {
                 res.send(error.message);
             }
@@ -90,13 +71,13 @@ const newsPostController = (req, res) => {
 const mentorsPostController = (req, res) => {
     try {
         const newMentor = new mentors({
-            username: req.user.username,
-            company: req.user.company,
-            linkedIn: req.user.linkedIn,
+            username: req.body.username,
+            company: req.body.company,
+            meeting: req.body.meeting,
         });
         newMentor.save((error) => {
             if (!error) {
-                res.status(200).send('saved')
+                res.status(200).send(newMentor);
             } else {
                 res.send(error.message);
             }
@@ -113,10 +94,11 @@ const projectPostController = (req, res) => {
             category: req.body.category,
             liveLink: req.body.liveLink,
             gitHub: req.body.gitHub,
+            image: req.file.filename,
         });
         newProject.save((error) => {
             if (!error) {
-                res.status(200).send('saved')
+                res.status(200).send(newProject);
             } else {
                 res.send(error.message);
             }
@@ -124,49 +106,12 @@ const projectPostController = (req, res) => {
     } catch (error) { console.log(error.message) }
 }
 
-//teams controller;
-const teamPostController = (req, res) => {
-    try {
-        const newTeam = new teams({
-            teamName: req.body.teamName,
-            members: req.body.members,
-        });
-        newTeam.save((error) => {
-            if (!error) {
-                res.status(200).send('saved')
-            } else {
-                res.send(error.message);
-            }
-        });
-    } catch (error) { console.log(error.message) }
-}
-
-//errors controller;
-const errorsPostController = (req, res) => {
-    try {
-        const newError = new errors({
-            technology: req.body.technology,
-            image: req.file.filename,
-            description: req.body.description,
-        });
-        newError.save((error) => {
-            if (!error) {
-                res.status(200).send('saved')
-            } else {
-                res.send(error.message);
-            }
-        });
-    } catch (error) { console.log(error.message) }
-}
 
 //exporting controllers;
 module.exports = {
     peerPostController,
     blogPostController,
-    groupPostController,
     newsPostController,
     mentorsPostController,
     projectPostController,
-    teamPostController,
-    errorsPostController,
 }
