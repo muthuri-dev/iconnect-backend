@@ -34,10 +34,10 @@ const {
 
 
 //initializing get routes;
-app.use('/iconnect', getRouter);
+app.use('/IKonnect', getRouter);
 
 //initializing post routes;
-app.use('/iconnect', postRouter);
+app.use('/IKonnect', postRouter);
 
 
 //listening to the server;
