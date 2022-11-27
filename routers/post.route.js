@@ -15,12 +15,9 @@ const {
 const {
     peerPostController,
     blogPostController,
-    groupPostController,
     newsPostController,
     mentorsPostController,
     projectPostController,
-    teamPostController,
-    errorsPostController,
 } = require('../controllers/post.controller');
 
 
@@ -36,21 +33,15 @@ router.post('/register', registerController);
 
 router.post('/login', loginController);
 
-router.post('/peer', peerPostController);
+router.post('/peers', peerPostController);
 
 router.post('/blogs', upload, blogPostController);
-
-router.post('/groups', groupPostController);
 
 router.post('/news', upload, newsPostController);
 
 router.post('/mentors', mentorsPostController);
 
-router.post('/projects', projectPostController);
-
-router.post('/teams', teamPostController);
-
-router.post('/errors', upload, errorsPostController)
+router.post('/projects', upload, projectPostController);
 
 
 //exporting controllers;
