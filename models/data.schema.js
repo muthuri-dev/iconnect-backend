@@ -62,16 +62,6 @@ const blogSchema = new schema({
 
 const blogs = mongoose.model('blogs', blogSchema);
 
-//groups schema;
-const groupSchema = new schema({
-    groupName: {
-        type: String,
-        required: true,
-    },
-    image: Buffer,
-}, { timestamp: true });
-
-const groups = mongoose.model('groups', groupSchema);
 
 //techNews schema;
 const techNewsSchema = new schema({
@@ -98,7 +88,7 @@ const mentorSchema = new schema({
         required: true,
     },
     company: String,
-    linkedIn: {
+    meeting: {
         type: String,
         required: true,
     }
@@ -120,33 +110,13 @@ const projectsSchema = new schema({
     category: String,
     liveLink: String,
     gitHub: String,
+    image: Buffer,
 }, { timestamp: true });
 
 
 const projects = mongoose.model('project', projectsSchema);
 
 
-//teams schema;
-const teamsSchema = new schema({
-    teamName: {
-        type: String,
-        required: true
-    },
-    members: String,
-}, { timestamp: true });
-
-
-const teams = mongoose.model('teams', teamsSchema);
-
-
-//errors schema;
-const errorSchema = new schema({
-    technology: String,
-    image: Buffer,
-    description: String,
-});
-
-const errors = mongoose.model('errors', errorSchema);
 
 
 //exporting schemas;
@@ -154,10 +124,7 @@ module.exports = {
     register,
     peers,
     blogs,
-    groups,
     techNews,
     mentors,
     projects,
-    teams,
-    errors,
 }
