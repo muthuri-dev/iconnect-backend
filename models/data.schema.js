@@ -30,15 +30,8 @@ const peerSchema = new schema({
         required: true,
         unique: true,
     },
-    phoneNumber: {
-        type: String,
-        required: true,
-        unique: true,
-    },
     portfolio: String,
     linkedIn: String,
-    gitHub: String,
-    twitter: String,
     skills: String,
 
 }, { timestamp: true });
@@ -107,7 +100,6 @@ const projectsSchema = new schema({
         type: String,
         required: true,
     },
-    category: String,
     liveLink: String,
     gitHub: String,
     image: Buffer,
