@@ -17,7 +17,6 @@ const peerPostController = (req, res) => {
     const newPeer = new peers({
         username: req.body.username,
         email: req.body.email,
-        phoneNumber: req.body.phoneNumber,
         portfolio: req.body.portfolio,
         linkedIn: req.body.linkedIn,
         skills: req.body.skills,
@@ -91,7 +90,6 @@ const projectPostController = (req, res) => {
         const newProject = new projects({
             projectName: req.body.projectName,
             description: req.body.description,
-            category: req.body.category,
             liveLink: req.body.liveLink,
             gitHub: req.body.gitHub,
             image: req.file.filename,
