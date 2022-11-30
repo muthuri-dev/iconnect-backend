@@ -36,7 +36,10 @@ const blogPostController = (req, res) => {
         const newBlog = new blogs({
             title: req.body.title,
             content: req.body.content,
-            image: req.file.filename,
+            image: {
+                data: req.file.filename,
+                contentType: 'image/png'
+            }
         });
         newBlog.save((error) => {
             if (error) {
@@ -54,7 +57,10 @@ const newsPostController = (req, res) => {
         const moreNews = new techNews({
             title: req.body.title,
             content: req.body.content,
-            image: req.file.filename,
+            image: {
+                data: req.file.filename,
+                contentType: 'image/png'
+            }
         });
         moreNews.save((error) => {
             if (!error) {
@@ -92,7 +98,10 @@ const projectPostController = (req, res) => {
             description: req.body.description,
             liveLink: req.body.liveLink,
             gitHub: req.body.gitHub,
-            image: req.file.filename,
+            image: {
+                data: req.file.filename,
+                contentType: 'image/png'
+            }
         });
         newProject.save((error) => {
             if (!error) {
