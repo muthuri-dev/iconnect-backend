@@ -99,7 +99,7 @@ const projectPostController = (req, res) => {
             liveLink: req.body.liveLink,
             gitHub: req.body.gitHub,
             image: {
-                data: fs.readFileSync('uploads/' + req.file.filename),
+                data: req.file.filename,
                 contentType: 'image/png'
             }
         });
