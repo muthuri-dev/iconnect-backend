@@ -14,7 +14,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 //static folder;
-app.use(express.static('uploads'));
+app.use('/uploads', express.static('uploads'));
 
 
 //connecting to the database;

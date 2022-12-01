@@ -49,8 +49,10 @@ const blogSchema = new schema({
         required: true,
     },
     image: {
-        type: Buffer,
-    }
+        data: Buffer,
+        contentType: String,
+    },
+
 }, { timestamp: true });
 
 const blogs = mongoose.model('blogs', blogSchema);
@@ -67,8 +69,9 @@ const techNewsSchema = new schema({
         required: true,
     },
     image: {
-        type: Buffer,
-    }
+        data: Buffer,
+        contentType: String,
+    },
 }, { timestamp: true });
 
 const techNews = mongoose.model('techNews', techNewsSchema);
@@ -100,9 +103,13 @@ const projectsSchema = new schema({
         type: String,
         required: true,
     },
+    image: {
+        data: Buffer,
+        contentType: String,
+    },
     liveLink: String,
     gitHub: String,
-    image: Buffer,
+
 }, { timestamp: true });
 
 
